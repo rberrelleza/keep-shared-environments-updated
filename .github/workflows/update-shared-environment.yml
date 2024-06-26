@@ -12,7 +12,7 @@ jobs:
     - name: Set Okteto Context
       uses: okteto/context@6a635bdbc7aef8c3af516714dadc4ca842aa3b22
       with:
-        url: ${{ secrets.OKTETO_URL }}
+        url: https://ramiro.okteto.dev
         token: ${{ secrets.OKTETO_TOKEN }}
         
     - name: "Activate Namespace"

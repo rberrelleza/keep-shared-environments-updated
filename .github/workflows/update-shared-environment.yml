@@ -9,10 +9,10 @@ jobs:
   update-shared-environment:
     runs-on: ubuntu-latest
     steps:
-    - name: Set Okteto Context
-      uses: okteto/context@6a635bdbc7aef8c3af516714dadc4ca842aa3b22
+    - name: Context
+      uses: okteto/context@latest
       with:
-        url: https://ramiro.okteto.dev
+        url: ${{secrets.OKTETO_URL}}
         token: ${{ secrets.OKTETO_TOKEN }}
         
     - name: "Activate Namespace"

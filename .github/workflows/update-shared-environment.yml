@@ -1,17 +1,18 @@
 # file: .github/workflows/staging.yaml
 on:
   push:
-    branches:
-      - main
+    paths-ignore:
+      - '*.md'
+      - 'LICENSE'
 
 jobs:
   update-shared-environment:
     runs-on: ubuntu-latest
     steps:
-    - name: Set Okteto Context
+    - name: Context
       uses: okteto/context@latest
       with:
-        url: ${{ secrets.OKTETO_URL }}
+        url: ${{secrets.OKTETO_URL}}
         token: ${{ secrets.OKTETO_TOKEN }}
         
     - name: "Activate Namespace"

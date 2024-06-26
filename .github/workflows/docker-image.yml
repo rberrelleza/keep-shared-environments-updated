@@ -1,0 +1,26 @@
+# file: .github/workflows/staging.yaml
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-shared-environment:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set Okteto Context
+      uses: okteto/context@latest
+      with:
+        url: ${{secrets.OKTETO_URL}}
+        token: ${{ secrets.OKTETO_TOKEN }}
+        
+    - name: "Activate Namespace"
+      uses: okteto/namespace@latest
+      with:
+        name: shared
+
+    - name: Deploy or update environment
+      uses: okteto/pipeline@latest
+      with:
+        namespace: shared
+        timeout: 15m

@@ -1,15 +1,16 @@
 # file: .github/workflows/staging.yaml
 on:
   push:
-    branches:
-      - main
+    paths-ignore:
+      - '*.md'
+      - 'LICENSE'
 
 jobs:
   update-shared-environment:
     runs-on: ubuntu-latest
     steps:
     - name: Set Okteto Context
-      uses: okteto/context@latest
+      uses: okteto/context@6a635bdbc7aef8c3af516714dadc4ca842aa3b22
       with:
         url: ${{ secrets.OKTETO_URL }}
         token: ${{ secrets.OKTETO_TOKEN }}

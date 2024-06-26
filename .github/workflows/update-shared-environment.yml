@@ -11,7 +11,7 @@ jobs:
     - name: Set Okteto Context
       uses: okteto/context@latest
       with:
-        url: ${{secrets.OKTETO_URL}}
+        url: ${{ secrets.OKTETO_URL }}
         token: ${{ secrets.OKTETO_TOKEN }}
         
     - name: "Activate Namespace"
